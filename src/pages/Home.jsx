@@ -25,7 +25,7 @@ const Home = () => {
     <>
       <p>Trending today</p>
       <ul>
-        {trendingMovies !== '' ? <MoviesList movies={trendingMovies} /> : <li></li>}
+        {trendingMovies !== '' ? <MoviesList movies={trendingMovies} /> : ''}
       </ul>
     </>
   );

@@ -1,23 +1,25 @@
 import { Routes, Route } from 'react-router-dom';
-import { lazy } from "react";
+import { lazy } from 'react';
 import SharedLayout from './SharedLayout/SharedLayout';
 
-const Home = lazy(() => import("../pages/Home"));
-const Movies = lazy(() => import("../pages/Movies"));
-const NotFound = lazy(() => import("../pages/NotFound"));
-
+const Home = lazy(() => import('../pages/Home'));
+const Movies = lazy(() => import('../pages/Movies'));
+const NotFound = lazy(() => import('../pages/NotFound'));
+const MovieDetails = lazy(() => import('../pages/MovieDetails'));
+const Reviews = lazy(() => import('./Reviews'));
+const Cast = lazy(() => import('./Cast'));
 
 export const App = () => {
-  // const API_KEY = '0003f54f58f173442abd026bac610d83';
-  // console.log(API_KEY);
 
   return (
     <>
       <Routes>
         <Route path="/" element={<SharedLayout />}>
           <Route index element={<Home />} />
-          <Route path="/movies" element={<Movies />}>
-            <Route/>
+          <Route path="/movies" element={<Movies />} />
+          <Route path="/movies/:movieId" element={<MovieDetails />}>
+            <Route path="cast" element={<Cast/> } />
+            <Route path="reviews" element={<Reviews/>}/>
           </Route>
           <Route path="*" element={<NotFound />} />
         </Route>

@@ -4,8 +4,8 @@ import { useSearchParams } from 'react-router-dom';
 import MoviesList from 'components/MoviesList';
 
 const Movies = () => {
-    const [searchedMovie, setSearchedMovie] = useState('');
-    const [movies, setMovies] = useState('');
+  const [searchedMovie, setSearchedMovie] = useState('');
+  const [movies, setMovies] = useState('');
   const [searchParams, setSearchParams] = useSearchParams('');
   const movieName = searchParams.get('query');
 
@@ -24,20 +24,20 @@ const Movies = () => {
     const API_KEY = '0003f54f58f173442abd026bac610d83';
     const searchMovieURL = `https://api.themoviedb.org/3/search/movie?query=${movieName}&include_adult=false&language=en-US&page=1&api_key=${API_KEY}`;
 
-    if (movieName === '') return;
+    if (movieName === '' || movieName === null) return;
 
     const fetchMovie = async () => {
       try {
         const response = await fetch(searchMovieURL);
-          const movies = await response.json();
-          if (movies.result !== []) {
-           setMovies(movies.results)   
-          } 
+        const movies = await response.json();
+        if (movies.result !== []) {
+          setMovies(movies.results);
+        }
       } catch (error) {
         console.log('error:', error);
       }
     };
-      fetchMovie();
+    fetchMovie();
   }, [movieName]);
 
   return (
@@ -45,10 +45,8 @@ const Movies = () => {
       <form onSubmit={handleSubmit}>
         <input type="text" value={searchedMovie} onChange={handleChange} />
         <button type="submit">Search</button>
-          </form>
-                <ul>
-        {movies !== '' ? <MoviesList movies={movies} /> : <li></li>}
-      </ul>
+      </form>
+      <ul>{movies !== '' ? <MoviesList movies={movies} /> : ''}</ul>
     </>
   );
 };
