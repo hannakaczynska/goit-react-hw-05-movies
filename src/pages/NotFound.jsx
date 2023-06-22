@@ -1,8 +1,9 @@
 import React from 'react'
+import {Title} from './Pages.styled'
 
 const NotFound = () => {
   return (
-    <p>Sorry we couldn't find that page...</p>
+    <Title>Sorry we couldn't find that page...</Title>
   )
 }
 

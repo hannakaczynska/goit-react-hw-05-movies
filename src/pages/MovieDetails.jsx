@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useLocation, Link, Outlet } from 'react-router-dom';
+import {Movie, MovieInformations, GoBackLink, ArrowIcon} from "./Pages.styled"
 
 const MovieDetails = () => {
   const [image, setImage] = useState();
@@ -53,8 +54,11 @@ const MovieDetails = () => {
 
   return (
     <>
-      <Link to={backPath}>Go back</Link>
-      <div>
+      <GoBackLink to={backPath}>
+              <ArrowIcon viewBox="0 0 24 24">
+        <path d="M14 7l-5 5 5 5V7z" /> </ArrowIcon>
+        Go back</GoBackLink>
+      <Movie>
         {image !== null ? (
           <img
             src={`https://image.tmdb.org/t/p/original${image}`}
@@ -78,8 +82,8 @@ const MovieDetails = () => {
           <h3>Genres</h3>
           <p>{genres.join(', ')}</p>
         </div>
-      </div>
-      <div>
+      </Movie>
+      <MovieInformations>
         <h5>Additional information</h5>
         <ul>
           <li>
@@ -93,7 +97,7 @@ const MovieDetails = () => {
             </Link>
           </li>
         </ul>
-      </div>
+      </MovieInformations>
       <Outlet />
     </>
   );

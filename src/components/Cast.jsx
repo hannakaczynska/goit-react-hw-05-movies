@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import { CastList } from './Cast.styled';
 
 const Cast = () => {
   const [cast, setCast] = useState([]);
@@ -29,7 +30,7 @@ const Cast = () => {
       {cast.length === 0 ? (
         <p>We don't have any cast for this movie.</p>
       ) : (
-        <ul>
+        <CastList>
           {cast.map((c, index) => (
             <li key={index}>
               {c.profile_path !== null ? (
@@ -45,7 +46,7 @@ const Cast = () => {
               <p>Charakter: {c.character}</p>
             </li>
           ))}
-        </ul>
+        </CastList>
       )}
     </>
   );

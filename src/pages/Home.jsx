@@ -1,5 +1,6 @@
 import MoviesList from '../components/MoviesList';
 import React, { useEffect, useState } from 'react';
+import {Title} from './Pages.styled'
 
 const Home = () => {
   const [trendingMovies, setTrendingMovies] = useState('');
@@ -23,7 +24,7 @@ const Home = () => {
 
   return (
     <>
-      <p>Trending today</p>
+      <Title>Trending today</Title>
       <ul>
         {trendingMovies !== '' ? <MoviesList movies={trendingMovies} /> : ''}
       </ul>
