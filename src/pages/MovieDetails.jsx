@@ -31,8 +31,8 @@ const MovieDetails = () => {
   };
 
   useEffect(() => {
-    const API_KEY = '0003f54f58f173442abd026bac610d83';
-    const movieDetailsURL = `https://api.themoviedb.org/3/movie/${movieId}?language=en-US&api_key=${API_KEY}`;
+    const apiKey = process.env.REACT_APP_API_KEY;
+    const movieDetailsURL = `https://api.themoviedb.org/3/movie/${movieId}?language=en-US&api_key=${apiKey}`;
     const fetchMovieDetails = async () => {
       try {
         const response = await fetch(movieDetailsURL);

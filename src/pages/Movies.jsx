@@ -21,8 +21,8 @@ const Movies = () => {
   };
 
   useEffect(() => {
-    const API_KEY = '0003f54f58f173442abd026bac610d83';
-    const searchMovieURL = `https://api.themoviedb.org/3/search/movie?query=${movieName}&include_adult=false&language=en-US&page=1&api_key=${API_KEY}`;
+    const apiKey = process.env.REACT_APP_API_KEY;
+    const searchMovieURL = `https://api.themoviedb.org/3/search/movie?query=${movieName}&include_adult=false&language=en-US&page=1&api_key=${apiKey}`;
 
     if (movieName === '' || movieName === null) return;
 

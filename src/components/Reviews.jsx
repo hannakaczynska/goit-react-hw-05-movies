@@ -8,8 +8,8 @@ const Reviews = () => {
   const movieId = params.movieId;
 
   useEffect(() => {
-    const API_KEY = '0003f54f58f173442abd026bac610d83';
-    const movieReviewsURL = `https://api.themoviedb.org/3/movie/${movieId}/reviews?language=en-US&page=1&api_key=${API_KEY}`;
+    const apiKey = process.env.REACT_APP_API_KEY;
+    const movieReviewsURL = `https://api.themoviedb.org/3/movie/${movieId}/reviews?language=en-US&page=1&api_key=${apiKey}`;
     const fetchMovieReviews = async () => {
       try {
         const response = await fetch(movieReviewsURL);
