@@ -40,6 +40,7 @@ const Movies = () => {
     fetchMovie();
   }, [movieName]);
 
+  
   return (
     <>
       <form onSubmit={handleSubmit}>
