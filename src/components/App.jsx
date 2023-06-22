@@ -1,4 +1,4 @@
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, BrowserRouter } from 'react-router-dom';
 import { lazy } from 'react';
 import SharedLayout from './SharedLayout/SharedLayout';
 
@@ -13,6 +13,7 @@ export const App = () => {
 
   return (
     <>
+      <BrowserRouter basename="/goit-react-hw-05-movies">
       <Routes>
         <Route path="/" element={<SharedLayout />}>
           <Route index element={<Home />} />
@@ -24,6 +25,7 @@ export const App = () => {
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
+      </BrowserRouter>
     </>
   );
 };
