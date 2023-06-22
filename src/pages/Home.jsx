@@ -6,7 +6,7 @@ const Home = () => {
   const [trendingMovies, setTrendingMovies] = useState('');
 
   useEffect(() => {
-    const apiKey = process.env.REACT_APP_API_KEY;
+    const apiKey = '0003f54f58f173442abd026bac610d83';
     const trendingURL = `https://api.themoviedb.org/3/trending/movie/day?language=en-US&api_key=${apiKey}`;
 
     const fetchTrendingMovies = async () => {

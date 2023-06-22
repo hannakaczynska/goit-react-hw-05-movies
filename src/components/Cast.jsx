@@ -9,7 +9,7 @@ const Cast = () => {
   const movieId = params.movieId;
 
   useEffect(() => {
-    const apiKey = process.env.REACT_APP_API_KEY;
+    const apiKey = '0003f54f58f173442abd026bac610d83';
     const movieCastURL = `https://api.themoviedb.org/3/movie/${movieId}/credits?language=en-US&api_key=${apiKey}`;
     const fetchMovieCast = async () => {
       try {
